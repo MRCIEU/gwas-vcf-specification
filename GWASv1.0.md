@@ -7,6 +7,7 @@ Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the V
 1.1 An example
 
 | #CHROM | POS	| ID	| REF |	ALT |	QUAL	| FILTER | INFO	| FORMAT | IEU-b-1 |
+------------------------------------------------------------------------------
 | 10 | 9960129 | rs4747841 | A | G | . | PASS | AF=0.460264;EAS_AF=0.6032;EUR_AF=0.495;AFR_AF=0.3434;AMR_AF=0.4164;SAS_AF=0.4663 |	ES:SE:LP:AF:SS:ID	| -0.0037:0.0052:0.145208:0.5092:89138:rs4747841 |
 | 10 | 9960259 |	rs4749917 |	C |	T |	. |	PASS |	AF=0.459665;EAS_AF=0.6032;EUR_AF=0.495;AFR_AF=0.3434;AMR_AF=0.415;SAS_AF=0.4642 |	ES:SE:LP:AF:SS:ID	| -0.0033:0.0052:0.11081:0.5092:89138:rs4749917 |
 | 10 |	9960453 |	rs12219605 |	G |	T |	. |	PASS |	AF=0.459665;EAS_AF=0.6032;EUR_AF=0.495;AFR_AF=0.3434;AMR_AF=0.415;SAS_AF=0.4642	| ES:SE:LP:AF:SS:ID	| -0.0035:0.0052:0.131179:0.5092:89138:rs12219605 |
