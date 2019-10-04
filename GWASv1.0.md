@@ -128,6 +128,8 @@ Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the V
 ##bcftools_annotateCommand=annotate -a /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/-1558081897/ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.vcf.gz -c AF,EAS_AF,EUR_AF,AFR_AF,AMR_AF,SAS_AF -o /data/igd/IEU-b-1/IEU-b-1_data.vcf.gz -O z /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/44387763/IEU-b-1_dbsnp.vcf.gz; Date=Mon Sep 30 16:34:22 2019
 ```
 
+1.1.1 Body
+
 | #CHROM | POS    | ID          | REF | ALT | QUAL | FILTER | INFO                                                                              | FORMAT            | IEU-b-1                                                       | 
 |--------|--------|-------------|-----|-----|------|--------|-----------------------------------------------------------------------------------|-------------------|---------------------------------------------------------------| 
 | 1      | 49298  | rs10399793  | T   | C   | .    | PASS   | AF=0.782149;EAS_AF=0.9633;EUR_AF=0.8936;AFR_AF=0.5204;AMR_AF=0.7104;SAS_AF=0.8855 | ES:SE:LP:AF:SS:ID | -0.00457955:0.00443769:0.522879:0.623804:49298:rs10399793     | 
@@ -140,3 +142,6 @@ Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the V
 | 1      | 693731 | rs12238997  | A   | G   | .    | PASS   | AF=0.141773;EAS_AF=0.1111;EUR_AF=0.1123;AFR_AF=0.208;AMR_AF=0.0504;SAS_AF=0.1789  | ES:SE:LP:AF:SS:ID | -0.00302668:0.00413341:0.337242:0.117294:693731:rs12238997    | 
 | 1      | 705882 | rs72631875  | G   | A   | .    | PASS   | AF=0.0315495;EAS_AF=0;EUR_AF=0.0775;AFR_AF=0.003;AMR_AF=0.0706;SAS_AF=0.0276      | ES:SE:LP:AF:SS:ID | 0.00302199:0.006025:0.207608:0.067689:705882:rs72631875       | 
 | 1      | 706368 | rs12029736  | A   | G   | .    | PASS   | AF=0.27516;EAS_AF=0.2788;EUR_AF=0.5139;AFR_AF=0.0295;AMR_AF=0.4035;SAS_AF=0.2669  | ES:SE:LP:AF:SS:ID | -0.0042266:0.00306793:0.769551:0.513298:706368:rs12029736     | 
+
+
+
