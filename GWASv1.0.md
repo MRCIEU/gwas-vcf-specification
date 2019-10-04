@@ -146,3 +146,17 @@ The VCF header defines fields found in the body including META fields which cont
 | 1      | 706368 | rs12029736  | A   | G   | .    | PASS   | AF=0.27516;EAS_AF=0.2788;EUR_AF=0.5139;AFR_AF=0.0295;AMR_AF=0.4035;SAS_AF=0.2669  | ES:SE:LP:AF:SS:ID | -0.0042266:0.00306793:0.769551:0.513298:706368:rs12029736     | 
 
 The first row represents a biallelic variant (rs10399793). The reference allele (T) is always the non-effect allele and must match the reference genome sequence. The alternative allele (C) is always the effect allele and often (but not always) the minor allele. The final column contains the alternative allele(s) effect size (ES), standard error (SE), P value on -log10 scale (LP), study allele frequency (AF), sample size (SS) and study variant identifier (ID). Some fields are optional orthers required, refer to the header for details.
+
+##### 2 Reserved keys
+
+| Field                                   | Description                                                        | Required | 
+|-----------------------------------------|--------------------------------------------------------------------|----------| 
+| ES                                      | Effect size estimate relative to the alternative allele            | YES      | 
+| SE                                      | Standard error of effect size estimate                             | YES      | 
+| LP	"-log10 p-value for effect estimate" | NO                                                                 |          | 
+| AF                                      | Alternate allele frequency in the association study                | NO       | 
+| SS                                      | Sample size used to estimate genetic effect                        | NO       | 
+| EZ                                      | Z-score provided if it was used to derive the EFFECT and SE fields | NO       | 
+| SI                                      | Accuracy score of summary data imputation                          | NO       | 
+| NC                                      | Number of cases used to estimate genetic effect                    | NO       | 
+| ID                                      | Study variant identifier                                           | NO       | 
