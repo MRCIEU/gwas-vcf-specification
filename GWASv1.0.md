@@ -167,6 +167,10 @@ The first row represents a biallelic variant (rs10399793). The reference allele 
 
 Genomic positions with more than one variant should be stored on a single row as shown above (rs9442385). This is not currently an essential requirement of the VCF format per se but duplicate variant IDs are not permitted and consistent approach is needed.
 
-##### 3. Converting plain text to VCF format
+##### 4. Converting plain text to VCF format
 
 Open source software to convert plain text GWAS summary statistics to VCF is available here: https://github.com/mrcieu/gwas_harmonisation
+
+##### 5. Querying GWAS VCF files in R or Python
+
+Libraries for reading VCF files are available in [R](https://github.com/MRCIEU/gwasvcftools) and [Python](https://github.com/mrcieu/pygwasvcftools).
