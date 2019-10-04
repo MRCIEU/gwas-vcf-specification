@@ -1,14 +1,46 @@
 ### The Variant Call Format (VCF) Genome-wide Association Study (GWAS) Summary Statistics Specification v1.0
 
+
+#### Rationale
+
+Specifying a format to store GWAS summary data is necessary to aid with data sharing and tool development. Using the VCF format can fulfil the following requirements
+
+- it uses a pre-existing, well known and well defined format
+- aligning against the reference genome and handling various difficulties such as indels, build differences and multi-allelic variants has been solved by the htslib library.
+- many tools exist that can be used for manipulation
+- the file format is relatively small
+- indexing makes looking up by chromosome and position extremely fast
+- indexing time is very fast
+- we can treat each GWAS as a distinct unit rather than storing everything in a database which is less nimble
+- we can store multiple GWAS datasets in a single file by using one sample column for each GWAS
+- it is easy to export the data into other tabular formats
+- it could translate directly 
+
 #### 1. The VCF specification
 
 The VCF format will not be covered here. Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the VCF v4.2 specification.
 
 ##### 1.1 VCF example storing GWAS summary statistics
 
+A broad overview:
+
+- the **header** describes the harmonisation and the study/studies in the file.
+- each row of the **body** contains information about a variant
+  - variant information (e.g. chromosome, id, position, alleles, annotations) are represented in the first few columns
+  - the **sample** section is used to store GWAS summary data. Each sample column represents one study
+
 ###### 1.1.1 Header
 
 The VCF header defines fields found in the body including META fields which contain information about the GWAS study.
+
+An example is given below. It has the following main meta data sections:
+
+- INFO - describes the annotations included for the variants
+- FORMAT - describes the fields available for the GWAS summary data (e.g. ES = effect size etc)
+- SAMPLE - a list of fields describing each of the studies. e.g. details of harmonising, study size
+- META - Descriptions of the fields in SAMPLE
+- contig - descriptions of the chromosomes
+- bcftools - list of commands used to create the file
 
 ```
 ##fileformat=VCFv4.2
