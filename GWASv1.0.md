@@ -128,6 +128,8 @@ The VCF format will not be covered here. Refer to [hts-specs](https://samtools.g
 ##bcftools_annotateCommand=annotate -a /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/-1558081897/ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.vcf.gz -c AF,EAS_AF,EUR_AF,AFR_AF,AMR_AF,SAS_AF -o /data/igd/IEU-b-1/IEU-b-1_data.vcf.gz -O z /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/44387763/IEU-b-1_dbsnp.vcf.gz; Date=Mon Sep 30 16:34:22 2019
 ```
 
+The VCF header defines fields found in the body including META fields which contain information about the GWAS study.
+
 ###### 1.1.2 Body
 
 | #CHROM | POS    | ID          | REF | ALT | QUAL | FILTER | INFO                                                                              | FORMAT            | IEU-b-1                                                       | 
