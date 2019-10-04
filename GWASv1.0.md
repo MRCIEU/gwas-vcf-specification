@@ -1,12 +1,12 @@
-## The Variant Call Format (VCF) Version 1.0 Specification For Storing Genome-wide Association Study (GWAS) Summary Statistics
+### The Variant Call Format (VCF) Genome-wide Association Study (GWAS) Summary Statistics Specification v1.0
 
-1. The VCF specification
+#### 1. The VCF specification
 
-Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the VCF v4.2 specification
+The VCF format will not be covered here. Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the VCF v4.2 specification.
 
-1.1 An example
+##### 1.1 VCF example storing GWAS summary statistics
 
-1.1.1 Header
+###### 1.1.1 Header
 
 ```
 ##fileformat=VCFv4.2
@@ -128,7 +128,7 @@ Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the V
 ##bcftools_annotateCommand=annotate -a /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/-1558081897/ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.vcf.gz -c AF,EAS_AF,EUR_AF,AFR_AF,AMR_AF,SAS_AF -o /data/igd/IEU-b-1/IEU-b-1_data.vcf.gz -O z /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/44387763/IEU-b-1_dbsnp.vcf.gz; Date=Mon Sep 30 16:34:22 2019
 ```
 
-1.1.1 Body
+###### 1.1.2 Body
 
 | #CHROM | POS    | ID          | REF | ALT | QUAL | FILTER | INFO                                                                              | FORMAT            | IEU-b-1                                                       | 
 |--------|--------|-------------|-----|-----|------|--------|-----------------------------------------------------------------------------------|-------------------|---------------------------------------------------------------| 
@@ -143,5 +143,4 @@ Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the V
 | 1      | 705882 | rs72631875  | G   | A   | .    | PASS   | AF=0.0315495;EAS_AF=0;EUR_AF=0.0775;AFR_AF=0.003;AMR_AF=0.0706;SAS_AF=0.0276      | ES:SE:LP:AF:SS:ID | 0.00302199:0.006025:0.207608:0.067689:705882:rs72631875       | 
 | 1      | 706368 | rs12029736  | A   | G   | .    | PASS   | AF=0.27516;EAS_AF=0.2788;EUR_AF=0.5139;AFR_AF=0.0295;AMR_AF=0.4035;SAS_AF=0.2669  | ES:SE:LP:AF:SS:ID | -0.0042266:0.00306793:0.769551:0.513298:706368:rs12029736     | 
 
-
-
+The first row represents a biallelic variant (rs10399793). The reference allele (T) is always the non-effect allele and must match the reference genome sequence. The alternative allele (C) is always the effect allele and often (but not always) the minor allele. The final column contains the alternative allele(s) effect size (ES), standard error (SE), P value on -log10 scale (LP), study allele frequency (AF), sample size (SS) and study variant identifier (ID). Some fields are optional orthers required, refer to the header for details.
