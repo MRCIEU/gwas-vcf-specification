@@ -147,7 +147,7 @@ The VCF header defines fields found in the body including META fields which cont
 | 1      | 1097335 | rs9442385   | T   | A,G | .    | PASS   | AF=0.013379,0.834665;EAS_AF=.,0.6339;EUR_AF=.,0.9553;AFR_AF=.,0.8192;AMR_AF=.,0.9035;SAS_AF=.,0.8896 | ES:SE:LP:AF:SS:ID | 0.00308509,0.00224527:0.0152548,0.00492936:0.0757207,0.187087:0.013379,0.93076:1.09734e+06,1.09734e+06:rs9442385 | 
 
 
-The first row represents a biallelic variant (rs10399793). The reference allele (T) is always the non-effect allele and must match the reference genome sequence. The alternative allele (C) is always the effect allele and often (but not always) the minor allele. The final column contains the effect size (ES), standard error (SE), P value on -log10 scale (LP), study allele frequency (AF), sample size (SS) and study variant identifier (ID). Some fields are optional others required, refer to the header for details.
+The first row represents a biallelic variant (rs10399793). The reference allele (T) is always the non-effect allele and must match the reference genome sequence. The alternative allele (C) is always the effect allele and often (but not always) the minor allele. The final column contains the effect size (ES), standard error (SE), P value on -log10 scale (LP), study allele frequency (AF), sample size (SS) and study variant identifier (ID). Some fields are optional others required, refer to the header and section 2 (below) for details.
 
 ##### 2 Reserved keys
 
@@ -162,3 +162,7 @@ The first row represents a biallelic variant (rs10399793). The reference allele 
 | SI    | Accuracy score of summary data imputation                          | NO       | 
 | NC    | Number of cases used to estimate genetic effect                    | NO       | 
 | ID    | Study variant identifier                                           | NO       | 
+
+##### 3 Multi-allelic variants
+
+Genomic positions with more than one variant should be stored on a single row as shown above (rs9442385). This is not currently an essential requirement of the VCF format per se but duplicate variant IDs are not permitted and consistent approach is needed.
