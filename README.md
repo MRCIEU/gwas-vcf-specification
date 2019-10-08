@@ -16,6 +16,14 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 - it is easy to export the data into other tabular formats
 - initial tests indicate it could translate directly to distributed databases that sit on top of vcf e.g https://github.com/GenomicsDB/GenomicsDB
 
+#### Existing tools
+
+- [bcftools]() can be used to manipulate, align with genome references, query, as it is in standard vcf format
+- [R/gwasvcftools]() wrapper around [bioconductor/VariantAnnotation]() package for performing natural GWAS queries in R. Includes LD proxy functionality
+- [pygwasvcftools]() wrapper around [pysam]() package for performing natural GWAS queries in python
+- [R/TwoSampleMR]() can use GWAS vcf files directly for summary data based Mendelian randomization analysis
+- [ldsc]() a fork of the LD score regression programme that allows reading in data directly from GWAS vcf format.
+
 #### 1. The VCF specification
 
 The VCF format will not be covered here. Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the VCF v4.2 specification.
