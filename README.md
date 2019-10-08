@@ -18,11 +18,12 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 
 #### Existing tools
 
-- [bcftools]() can be used to manipulate, align with genome references, query, as it is in standard vcf format
-- [R/gwasvcftools]() wrapper around [bioconductor/VariantAnnotation]() package for performing natural GWAS queries in R. Includes LD proxy functionality
-- [pygwasvcftools]() wrapper around [pysam]() package for performing natural GWAS queries in python
-- [R/TwoSampleMR]() can use GWAS vcf files directly for summary data based Mendelian randomization analysis
-- [ldsc]() a fork of the LD score regression programme that allows reading in data directly from GWAS vcf format.
+- https://github.com/mrcieu/gwas_harmonisation - open source software to convert plain text GWAS summary statistics to VCF
+- [bcftools](https://samtools.github.io/bcftools/bcftools.html) - can be used to manipulate, align with genome references, query, as it is in standard vcf format
+- [R/gwasvcftools](https://github.com/MRCIEU/gwasvcftools) - wrapper around [bioconductor/VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html) package for performing natural GWAS queries in R. Includes LD proxy functionality
+- [pygwasvcftools](https://github.com/MRCIEU/pygwasvcftools/tree/master/pygwasvcftools) - wrapper around [pysam](https://pysam.readthedocs.io/en/latest/index.html) package for performing natural GWAS queries in python
+- [R/TwoSampleMR](https://github.com/MRCIEU/TwoSampleMR/) - can use GWAS vcf files directly for summary data based Mendelian randomization analysis
+- [ldsc](https://github.com/explodecomputer/ldsc) - a fork of the LD score regression programme that allows reading in data directly from GWAS vcf format.
 
 #### 1. The VCF specification
 
@@ -206,11 +207,3 @@ The first row represents a biallelic variant (rs10399793). The reference allele 
 ##### 3. Multi-allelic variants
 
 Genomic positions with more than one variant should be stored on a single row as shown above (rs9442385). This is not currently an essential requirement of the VCF format per se but duplicate variant IDs are not permitted and consistent approach is needed.
-
-##### 4. Converting plain text to VCF format
-
-Open source software to convert plain text GWAS summary statistics to VCF is available here: https://github.com/mrcieu/gwas_harmonisation
-
-##### 5. Querying GWAS VCF files in R or Python
-
-Libraries for reading VCF files are available in [R](https://github.com/MRCIEU/gwasvcftools) and [Python](https://github.com/mrcieu/pygwasvcftools).
