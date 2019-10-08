@@ -14,7 +14,7 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 - we can treat each GWAS as a distinct unit rather than storing everything in a database which is less nimble
 - we can store multiple GWAS datasets in a single file by using one sample column for each GWAS
 - it is easy to export the data into other tabular formats
-- it could translate directly 
+- initial tests indicate it could translate directly to distributed databases that sit on top of vcf e.g https://github.com/GenomicsDB/GenomicsDB
 
 #### 1. The VCF specification
 
@@ -27,7 +27,7 @@ A broad overview:
 - the **header** describes the harmonisation and the study/studies in the file.
 - each row of the **body** contains information about a variant
   - variant information (e.g. chromosome, id, position, alleles, annotations) are represented in the first few columns
-  - the **sample** section is used to store GWAS summary data. Each sample column represents one study
+  - the **sample** section (which would normally represent the genotype information of one column per individual) is used to store GWAS summary data. Each sample column represents one study.
 
 ###### 1.1.1 Header
 
