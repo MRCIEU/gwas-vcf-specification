@@ -18,7 +18,7 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 
 #### Existing tools
 
-- https://github.com/mrcieu/gwas_harmonisation - open source software to convert plain text GWAS summary statistics to VCF
+- https://github.com/mrcieu/gwas2vcf - open source software to convert plain text GWAS summary statistics to VCF
 - [bcftools](https://samtools.github.io/bcftools/bcftools.html) - can be used to manipulate, align with genome references, query, as it is in standard vcf format
 - [R/gwasvcftools](https://github.com/MRCIEU/gwasvcftools) - wrapper around [bioconductor/VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html) package for performing natural GWAS queries in R. Includes LD proxy functionality
 - [pygwasvcftools](https://github.com/MRCIEU/pygwasvcftools/tree/master/pygwasvcftools) - wrapper around [pysam](https://pysam.readthedocs.io/en/latest/index.html) package for performing natural GWAS queries in python
