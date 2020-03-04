@@ -1,44 +1,45 @@
-### The Variant Call Format (VCF) Genome-wide Association Study (GWAS) Summary Statistics Specification v1.0
+# The Variant Call Format Summary Statistics Specification v1.0
 
 
-#### Rationale
+## Rationale
 
 Specifying a format to store GWAS summary data is necessary to aid with data sharing and tool development. Using the VCF format can fulfil the following requirements
 
-- it uses a pre-existing, well known and well defined format
-- aligning against the reference genome and handling various difficulties such as indels, build differences and multi-allelic variants has been solved by the htslib library.
-- many tools exist that can be used for manipulation
-- the file format is relatively small
-- indexing makes looking up by chromosome and position extremely fast
-- indexing time is very fast
-- we can treat each GWAS as a distinct unit rather than storing everything in a database which is less nimble
-- we can store multiple GWAS datasets in a single file by using one sample column for each GWAS
-- it is easy to export the data into other tabular formats
-- initial tests indicate it could translate directly to distributed databases that sit on top of vcf e.g https://github.com/GenomicsDB/GenomicsDB
+- It uses a pre-existing, well known and well defined format
+- Aligning against the reference genome and handling various difficulties such as indels, build differences and multi-allelic variants has been solved by the htslib library.
+- Many tools exist that can be used for manipulation
+- The file format is relatively small
+- Indexing makes looking up by chromosome and position extremely fast
+- Indexing time is very fast
+- We can treat each GWAS as a distinct unit rather than storing everything in a database which is less nimble
+- We can store multiple GWAS datasets in a single file by using one sample column for each GWAS
+- It is easy to export the data into other tabular formats
+- Initial tests indicate it could translate directly to distributed databases that sit on top of vcf e.g https://github.com/GenomicsDB/GenomicsDB
 
-#### Existing tools
+## Existing tools
 
-- https://github.com/mrcieu/gwas2vcf - open source software to convert plain text GWAS summary statistics to VCF
+- [gwas2vcf](https://github.com/mrcieu/gwas2vcf) - open source software to convert plain text GWAS summary statistics to VCF
+- [gwas2vcfweb](https://github.com/mrcieu/gwas2vcfweb) - open source front/back-end for gwas2vcf running [here](http://64.227.44.193:8400/)
 - [bcftools](https://samtools.github.io/bcftools/bcftools.html) - can be used to manipulate, align with genome references, query, as it is in standard vcf format
 - [R/gwasvcftools](https://github.com/MRCIEU/gwasvcftools) - wrapper around [bioconductor/VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html) package for performing natural GWAS queries in R. Includes LD proxy functionality
 - [pygwasvcftools](https://github.com/MRCIEU/pygwasvcftools/tree/master/pygwasvcftools) - wrapper around [pysam](https://pysam.readthedocs.io/en/latest/index.html) package for performing natural GWAS queries in python
 - [R/TwoSampleMR](https://github.com/MRCIEU/TwoSampleMR/) - can use GWAS vcf files directly for summary data based Mendelian randomization analysis
 - [ldsc](https://github.com/explodecomputer/ldsc) - a fork of the LD score regression programme that allows reading in data directly from GWAS vcf format.
 
-#### 1. The VCF specification
+## 1. The VCF specification
 
-The VCF format will not be covered here. Refer to [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf) for the VCF v4.2 specification.
+The VCF format specification is available from [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
 
-##### 1.1 VCF example storing GWAS summary statistics
+### 1.1 VCF example storing GWAS summary statistics
 
 A broad overview:
 
-- the **header** describes the harmonisation and the study/studies in the file.
+- the **header** describes the harmonisation and the trait(s)/study/studies in the file.
 - each row of the **body** contains information about a variant
   - variant information (e.g. chromosome, id, position, alleles, annotations) are represented in the first few columns
-  - the **sample** section (which would normally represent the genotype information of one column per individual) is used to store GWAS summary data. Each sample column represents one study.
+  - the **sample** section (which would normally represent the genotype information of one column per individual) is used to store GWAS summary data. Each sample column represents one study/trait.
 
-###### 1.1.1 Header
+#### 1.1.1 Header
 
 The VCF header defines fields found in the body including META fields which contain information about the GWAS study.
 
@@ -46,12 +47,12 @@ An example is given below. It has the following main meta data sections:
 
 - INFO - describes the annotations included for the variants
 - FORMAT - describes the fields available for the GWAS summary data (e.g. ES = effect size etc)
-- SAMPLE - a list of fields describing each of the studies. e.g. details of harmonising, study size
+- SAMPLE - a list of fields describing each of the studies/traits. e.g. details of harmonising, sample size
 - META - Descriptions of the fields in SAMPLE
 - contig - descriptions of the chromosomes
 - bcftools - list of commands used to create the file
 
-```
+```text
 ##fileformat=VCFv4.2
 ##FILTER=<ID=PASS,Description="All filters passed">
 ##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
@@ -171,7 +172,7 @@ An example is given below. It has the following main meta data sections:
 ##bcftools_annotateCommand=annotate -a /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/-1558081897/ALL.wgs.phase3_shapeit2_mvncall_integrated_v5b.20130502.sites.vcf.gz -c AF,EAS_AF,EUR_AF,AFR_AF,AMR_AF,SAS_AF -o /data/igd/IEU-b-1/IEU-b-1_data.vcf.gz -O z /data/cromwell-executions/qc/03aa2581-76e0-4544-b393-f2ee8ca2cfa6/call-annotate_af/inputs/44387763/IEU-b-1_dbsnp.vcf.gz; Date=Mon Sep 30 16:34:22 2019
 ```
 
-###### 1.1.2 Body
+#### 1.1.2 Body
 
 | #CHROM | POS     | ID          | REF | ALT | QUAL | FILTER | INFO                                                                                                 | FORMAT            | IEU-b-1                                                                                                          | 
 |--------|---------|-------------|-----|-----|------|--------|------------------------------------------------------------------------------------------------------|-------------------|------------------------------------------------------------------------------------------------------------------| 
@@ -190,7 +191,7 @@ An example is given below. It has the following main meta data sections:
 
 The first row represents a biallelic variant (rs10399793). The reference allele (T) is always the non-effect allele and must match the reference genome sequence. The alternative allele (C) is always the effect allele and often (but not always) the minor allele. The final column contains the effect size (ES), standard error (SE), P value on -log10 scale (LP), study allele frequency (AF), sample size (SS) and study variant identifier (ID). Some fields are optional others required, refer to the header and section 2 (below) for details.
 
-##### 2. Reserved keys
+## 2. Reserved keys
 
 | Field | Description                                                        | Required | 
 |-------|--------------------------------------------------------------------|----------| 
@@ -204,6 +205,6 @@ The first row represents a biallelic variant (rs10399793). The reference allele 
 | NC    | Number of cases used to estimate genetic effect                    | NO       | 
 | ID    | Study variant identifier                                           | NO       | 
 
-##### 3. Multi-allelic variants
+## 3. Multi-allelic variants
 
-Genomic positions with more than one variant should be stored on a single row as shown above (rs9442385). This is not currently an essential requirement of the VCF format per se but duplicate variant IDs are not permitted and consistent approach is needed.
+Genomic positions with more than one variant should be stored on a single row as shown above (rs9442385). This is not currently an essential requirement of the VCF format per se but duplicate variant IDs are not permitted and consistent approach should be used.
