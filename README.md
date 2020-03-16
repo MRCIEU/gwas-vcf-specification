@@ -207,3 +207,7 @@ The first row represents a biallelic variant (rs10399793). The reference allele 
 ##### 3. Multi-allelic variants
 
 Genomic positions with more than one variant should be stored on a single row as shown above (rs9442385). This is not currently an essential requirement of the VCF format per se but duplicate variant IDs are not permitted and consistent approach is needed.
+
+## Known issues
+
+VCF v4.2 cannot accommodate double precision floats. Decimals smaller than 1.1754944e-38 are rounded to 0. P values are encoded as -log10.
