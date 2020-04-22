@@ -1,0 +1,14 @@
+GWAS-VCF:
+- source and version of summary statistics
+- study IDs (e.g., PMID/DOI of publication describing the study, or accession number and repository of individual-level data)
+- description of the trait(s) studied
+    - type
+    - association test used
+    - sample size
+    - ancestry
+    - measurement unit
+    - source and version of trait IDs
+        - Experimental Factor Ontology
+        - Human Phenotyping Ontology
+        - Medical Subject Headings IDs for clinical and other traits
+        - Ensembl Gene IDs for eQTL datasets
