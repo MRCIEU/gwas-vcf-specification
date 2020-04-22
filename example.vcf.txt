@@ -91,11 +91,11 @@
 
 Define cohort variant-level annotations:
 
-##INFO=<ID=RSID,Number=1,Type=String,Description="dbSNP identifier",Source="https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.25.gz",Version="153">
+##INFO=<ID=RSID,Number=1,Type=String,Description="dbSNP identifier",Source="ftp://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.25.gz",Version="153">
 ##INFO=<ID=AF,Number=A,Type=Float,Description="Alternative allele frequency in GWAS cohort">
 ##INFO=<ID=AC,Number=A,Type=Integer,Description="Alternative allele count in the cohort">
 
-- Always be two because we're storing one variant per row?
+- Always be two because we're storing one variant per row? to drop?
 ##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
 
 ##INFO=<ID=NS,Number=1,Type=Integer,Description="Number of samples/individuals with called genotypes in the cohort">
@@ -112,18 +112,18 @@ Define trait variant-level annotations:
 ##FORMAT=<ID=AF,Number=A,Type=Float,Description="Allele frequency in trait subset">
 
 - one or more traits from a single ontology, is that correct?
-##META=<ID=Trait,Number=.,Type=String,Description="Phenotype description",Source="EFO",Version="v3.14.0">
+##META=<ID=Trait,Number=1,Type=String,Description="Phenotype description",Source="EFO",Version="v3.14.0">
 ##META=<ID=Unit,Number=1,Type=String,Description="Phenotype units">
 
-- Muliple publications may be provided here in URI format, is that ok?
-##META=<ID=Publication,Number=.,Type=String,Description="URI for publication in URI format i.e. pmid:12345 or doi:10.1000/xyz123">
+##META=<ID=FileSource,Number=1,Type=String,Description="URI for file source i.e. pmid:12345, doi:10.1000/xyz123, ftp:/path/to/file">
+##META=<ID=FileVersion,Number=1,Type=String,Description="Version of the summary statistics">
 
 Define trait metadata annotations:
 
-##META=<ID=Population,Number=1,Type=String,Description="Population ethnicity taken from doi:10.1186/s13059-018-1396-2",Values=["Aboriginal Australian", "African American or Afro-Caribbean", "African unspecified", "Asian unspecified", "Central Asian", "East Asian", "European", "Greater Middle Eastern (Middle Eastern, North African, or Persian)", "Hispanic or Latin American", "Native American", "Not reported", "Oceanian", "Other", "Other admixed ancestry", "South Asian", "South East Asian", "Sub-Saharan African"]>
+##META=<ID=Population,Number=1,Type=String,Description="Population ethnicity",Values=["Aboriginal Australian", "African American or Afro-Caribbean", "African unspecified", "Asian unspecified", "Central Asian", "East Asian", "European", "Greater Middle Eastern (Middle Eastern, North African, or Persian)", "Hispanic or Latin American", "Native American", "Not reported", "Oceanian", "Other", "Other admixed ancestry", "South Asian", "South East Asian", "Sub-Saharan African"],Source="doi:10.1186/s13059-018-1396-2",Version="1">
 ##META=<ID=TotalSamples,Number=1,Type=Integer,Description="Total number of controls in the association study">
 ##META=<ID=TotalCases,Number=1,Type=Integer,Description="Total number of cases in the association study">
-##META=<ID=TraitType,Number=1,Type=String,Description="Type of GWAS study",Values=[Continuous, Binary]>
+##META=<ID=TraitType,Number=1,Type=String,Description="Type of GWAS study",Values=["Continuous", "Binary"]>
 ##META=<ID=AssocTest,Number=1,Type=String,Description="Association test to derive the effect estimate">
 
 - seems strange to store these by trait rather than cohort but each GWAS will need to be processed individually and then merged, may be there is a better way?
@@ -136,10 +136,10 @@ Define trait metadata annotations:
 
 Assign trait metadata annotations:
 
-##SAMPLE=<ID=UniqueID1,Trait=["Body mass index", "EFO:0004340"],Unit="SD",Publication=["pmid:29846171"],Population="European",TotalSamples=461460,TotalCases=0,TraitType=Continuous,AssocTest="BOLT-LMM",TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866>
-##SAMPLE=<ID=UniqueID2,Trait=["type II diabetes mellitus", "EFO:0001360"],Unit="Cases",Publication=["pmid:29846171"],Population="European",TotalSamples=462933,TotalCases=2972,TraitType=Binary,AssocTest="SAIGE",TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866>
+##SAMPLE=<ID=EFO0004340,Trait="Body mass index",Unit="SD",FileSource="pmid:29846171",FileVersion="1",Population="European",TotalSamples=461460,TotalCases=0,TraitType=Continuous,AssocTest="BOLT-LMM",TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866>
+##SAMPLE=<ID=EFO0001360,Trait="type II diabetes mellitus",Unit="Log-odds of outcome",FileSource="pmid:29846171",FileVersion="1",Population="European",TotalSamples=462933,TotalCases=2972,TraitType=Binary,AssocTest="SAIGE",TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866>
 
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	UniqueID1 UniqueID2
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	EFO0004340 EFO0001360
 1	49298	.	T	C	.	PASS	RSID=rs10399793;AF=0.613764;AC=568351;AN=2;NS=463005	SS:NC:ES:SE:LP:AF	463005:0:0.00103892:0.0034984:0.113509:0.613764   463005:2972:9.098e-05:0.000294716:0.119186:0.613764
 1	49298	.	T	A	.	PASS	RSID=rs10399793;AF=0.01;AC=4630;AN=2;NS=463005	SS:NC:ES:SE:LP:AF	463005:0:0.00214602:0.00346583:0.267606:0.011   463005:2972:0.000102689:0.00029197:0.136677:0.012
 1	91536	.	GTC	G	.	PASS	RSID=rs6702460;AF=0.456845;AC=423042;AN=2;NS=463005	SS:NC:ES:SE:LP:AF	463005:0:0.00410514:0.0034125:0.638272:0.456845    463005:2972:0.000329732:0.000287485:0.60206:0.456851
