@@ -28,7 +28,7 @@
 ##contig=<ID=X,length=155270560,assembly=GRCh37.p13>
 ##contig=<ID=Y,length=59373566,assembly=GRCh37.p13>
 ##FILTER=<ID=PASS,Description="All filters passed">
-##INFO=<ID=RSID,Number=1,Type=String,Description="dbSNP identifier",Source="ftp.ncbi.nih.gov_snp_latest-5Frelease_VCF_GCF-5F000001405.25.gz",Version="153">
+##INFO=<ID=RSID,Number=1,Type=String,Description="dbSNP identifier",Source="https://ftp.ncbi.nih.gov/snp/latest_release/VCF/GCF_000001405.25.gz",Version="153">
 ##FORMAT=<ID=NS,Number=A,Type=Float,Description="Number of samples/individuals with called genotypes in the trait subset">
 ##FORMAT=<ID=EZ,Number=A,Type=Float,Description="Z-score provided if it was used to derive the ES and SE fields">
 ##FORMAT=<ID=SI,Number=A,Type=Float,Description="Accuracy score of summary association statistics imputation">
