@@ -18,10 +18,10 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 ## Existing tools
 
 - [gwas2vcf](https://github.com/mrcieu/gwas2vcf) - open source software to convert plain text GWAS summary statistics to VCF
-- [gwas2vcfweb](https://github.com/mrcieu/gwas2vcfweb) - open source front/back-end for gwas2vcf running [here](http://vcf.mrcieu.ac.uk/)
+- [gwas2vcfweb](https://github.com/mrcieu/gwas2vcfweb) - open source front/back-end for gwas2vcf running at <http://vcf.mrcieu.ac.uk/>
 - [bcftools](https://samtools.github.io/bcftools/bcftools.html) - can be used to manipulate, align with genome references, query, as it is in standard vcf format
-- [R/gwasvcftools](https://github.com/MRCIEU/gwasvcftools) - wrapper around [bioconductor/VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html) package for performing natural GWAS queries in R. Includes LD proxy functionality
-- [pygwasvcftools](https://github.com/MRCIEU/pygwasvcftools/tree/master/pygwasvcftools) - wrapper around [pysam](https://pysam.readthedocs.io/en/latest/index.html) package for performing natural GWAS queries in python
+- [R/gwasvcf](https://github.com/MRCIEU/gwasvcf) - wrapper around [bioconductor/VariantAnnotation](https://bioconductor.org/packages/release/bioc/html/VariantAnnotation.html) package for performing natural GWAS queries in R. Includes LD proxy functionality
+- [pygwasvcftools](https://github.com/MRCIEU/pygwasvcf) - wrapper around [pysam](https://pysam.readthedocs.io/en/latest/index.html) package for performing natural GWAS queries in python
 - [R/TwoSampleMR](https://github.com/MRCIEU/TwoSampleMR/) - can use GWAS vcf files directly for summary data based Mendelian randomization analysis
 - [ldsc](https://github.com/explodecomputer/ldsc) - a fork of the LD score regression programme that allows reading in data directly from GWAS vcf format.
 
