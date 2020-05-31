@@ -1,13 +1,5 @@
 # The Variant Call Format Summary Statistics Specification v1.1
 
-## Citation
-
-```
-The variant call format provides efficient and robust storage of GWAS summary statistics
-Matthew S Lyon, Shea J Andrews, Benjamin L Elsworth, Tom R Gaunt, Gibran Hemani, Edoardo Marcora
-bioRxiv 2020.05.29.115824; doi: https://doi.org/10.1101/2020.05.29.115824
-```
-
 ## Rationale
 
 Specifying a format to store GWAS summary data is necessary to aid with data sharing and tool development. Using the VCF format can fulfil the following requirements
@@ -133,3 +125,11 @@ The first row represents a biallelic variant (rs10399793). The reference allele 
 ## 3. Multi-allelic variants
 
 Genomic positions with more than one variant should be stored on individual rows as shown above (rs10399793)
+
+## Citation
+
+```
+The variant call format provides efficient and robust storage of GWAS summary statistics
+Matthew S Lyon, Shea J Andrews, Benjamin L Elsworth, Tom R Gaunt, Gibran Hemani, Edoardo Marcora
+bioRxiv 2020.05.29.115824; doi: https://doi.org/10.1101/2020.05.29.115824
+```
