@@ -1,5 +1,7 @@
 ##fileformat=VCFv4.2
-##gwasformat=GWAS-VCFv1.1
+##fileurl=https://github.com/MRCIEU/gwas-vcf-specification/blob/master/example.vcf.txt
+##filedate="07/09/2020"
+##gwasformat=GWAS-VCFv1.2
 ##source=Gwas2VCFv1.2.0
 ##reference=ftp://ftp.broadinstitute.org/bundle/b37/human_g1k_v37.fasta.gz
 ##contig=<ID=1,length=249250621,assembly=GRCh37.p13>
@@ -37,9 +39,9 @@
 ##FORMAT=<ID=LP,Number=A,Type=Float,Description="-log10 p-value for effect estimate">
 ##FORMAT=<ID=AF,Number=A,Type=Float,Description="Alternative allele frequency in trait subset">
 ##FORMAT=<ID=AC,Number=A,Type=Float,Description="Alternative allele count in the trait subset">
-##Publication="pmid:29846171"
+##study=<ID="PMID:12345678",Source="PubMed">
 ##trait=<ID=EFO0004340,Description="Body mass index",Source="EFO",Version="3.14.0",Type="continuous",Test="linear",Unit="SD",Population="European",TotalSamples=461460,TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866,FileUrl="https://gwas.mrcieu.ac.uk/files/ukb-b-19953/ukb-b-19953.vcf.gz",FileDate="24/04/2020">
-##trait=<ID=EFO0001360,Description="type II diabetes mellitus",Source="EFO",Version="3.14.0",Type="binary",Test="linear",Unit="NA",Population="European",TotalSamples=462933,TotalCases=2972,TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866,FileUrl="https://gwas.mrcieu.ac.uk/files/ukb-b-13806/ukb-b-13806.vcf.gz",FileDate="24/04/2020">
+##trait=<ID=EFO0001360,Description="type II diabetes mellitus",Source="EFO",Version="3.14.0",Type="binary",Test="logistic",Population="European",TotalSamples=462933,TotalCases=2972,TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866,FileUrl="https://gwas.mrcieu.ac.uk/files/ukb-b-13806/ukb-b-13806.vcf.gz",FileDate="24/04/2020">
 #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	EFO0004340	EFO0001360
 1	49298	.	T	C	.	PASS	RSID=rs10399793	NS:NC:ES:SE:LP:AF:AC	463005:0:0.00103892:0.0034984:0.113509:0.613764:568351	463005:2972:9.098e-05:0.000294716:0.119186:0.613764:568351
 1	49298	.	T	A	.	PASS	RSID=rs10399793	NS:NC:ES:SE:LP:AF:AC	463005:0:0.00214602:0.00346583:0.267606:0.011:4630	463005:2972:0.000102689:0.00029197:0.136677:0.012:4630
