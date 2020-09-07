@@ -1,4 +1,4 @@
-# The Variant Call Format Summary Statistics Specification v1.1
+# The Variant Call Format Summary Statistics Specification v1.2
 
 ## Rationale
 
@@ -46,14 +46,16 @@ An example is given below. It has the following main meta data sections:
 
 - INFO - describes the annotations included for the variants
 - FORMAT - describes the fields available for the GWAS summary data (e.g. ES = effect size etc)
-- SAMPLE - a list of fields describing each of the studies/traits. e.g. details of harmonising, sample size
-- Trait - Descriptions of the fields in SAMPLE
+- study - describes metadata about the study i.e. publication
+- trait - describes metadata about the trait i.e. phenotype that is tested for association with the variant
 - contig - descriptions of the chromosomes
 - bcftools - list of commands used to create the file
 
 ```text
 ##fileformat=VCFv4.2
-##gwasformat=GWAS-VCFv1.1
+##fileurl=https://github.com/MRCIEU/gwas-vcf-specification/blob/master/example.vcf.txt
+##filedate="07/09/2020"
+##gwasformat=GWAS-VCFv1.2
 ##source=Gwas2VCFv1.2.0
 ##reference=ftp://ftp.broadinstitute.org/bundle/b37/human_g1k_v37.fasta.gz
 ##contig=<ID=1,length=249250621,assembly=GRCh37.p13>
@@ -91,9 +93,9 @@ An example is given below. It has the following main meta data sections:
 ##FORMAT=<ID=LP,Number=A,Type=Float,Description="-log10 p-value for effect estimate">
 ##FORMAT=<ID=AF,Number=A,Type=Float,Description="Alternative allele frequency in trait subset">
 ##FORMAT=<ID=AC,Number=A,Type=Float,Description="Alternative allele count in the trait subset">
-##Publication="pmid:29846171"
+##study=<ID="PMID:12345678",Source="PubMed">
 ##trait=<ID=EFO0004340,Description="Body mass index",Source="EFO",Version="3.14.0",Type="continuous",Test="linear",Unit="SD",Population="European",TotalSamples=461460,TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866,FileUrl="https://gwas.mrcieu.ac.uk/files/ukb-b-19953/ukb-b-19953.vcf.gz",FileDate="24/04/2020">
-##trait=<ID=EFO0001360,Description="type II diabetes mellitus",Source="EFO",Version="3.14.0",Type="binary",Test="linear",Unit="NA",Population="European",TotalSamples=462933,TotalCases=2972,TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866,FileUrl="https://gwas.mrcieu.ac.uk/files/ukb-b-13806/ukb-b-13806.vcf.gz",FileDate="24/04/2020">
+##trait=<ID=EFO0001360,Description="type II diabetes mellitus",Source="EFO",Version="3.14.0",Type="binary",Test="logistic",Population="European",TotalSamples=462933,TotalCases=2972,TotalVariants=9851866,VariantsNotRead=0,HarmonisedVariants=9851866,VariantsNotHarmonised=0,SwitchedAlleles=9851866,FileUrl="https://gwas.mrcieu.ac.uk/files/ukb-b-13806/ukb-b-13806.vcf.gz",FileDate="24/04/2020">
 ```
 
 #### 1.1.2 Body
