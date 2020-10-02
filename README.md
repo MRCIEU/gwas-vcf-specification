@@ -25,6 +25,11 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 - [R/TwoSampleMR](https://github.com/MRCIEU/TwoSampleMR/) - can use GWAS vcf files directly for summary data based Mendelian randomization analysis
 - [ldsc](https://github.com/explodecomputer/ldsc) - a fork of the LD score regression programme that allows reading in data directly from GWAS vcf format.
 
+## Guides
+
+- [Basic file manipulation](https://github.com/mrcieu/gwas2vcf#working-with-gwas-vcf)
+- [Analytical workflows](https://mrcieu.github.io/gwasglue/)
+
 ## 1. The VCF specification
 
 The VCF format specification is available from [hts-specs](https://samtools.github.io/hts-specs/VCFv4.2.pdf).
