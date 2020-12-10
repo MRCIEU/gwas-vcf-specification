@@ -140,3 +140,8 @@ The variant call format provides efficient and robust storage of GWAS summary st
 Matthew S Lyon, Shea J Andrews, Benjamin L Elsworth, Tom R Gaunt, Gibran Hemani, Edoardo Marcora
 bioRxiv 2020.05.29.115824; doi: https://doi.org/10.1101/2020.05.29.115824
 ```
+
+```
+The Variant Call Format (VCF) Version 4.2 Specification. (2020).
+Available from: https://samtools.github.io/hts-specs/VCFv4.2.pdf
+```
