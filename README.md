@@ -2,7 +2,7 @@
 
 ## Rationale
 
-Specifying a format to store GWAS summary data is necessary to aid with data sharing and tool development. Using the VCF format can fulfil the following requirements
+Specifying a format to store GWAS summary data is necessary to aid with data sharing and tool development. Using the VCF format can fulfill the following requirements
 
 - It uses a pre-existing, well known and well defined format
 - Aligning against the reference genome and handling various difficulties such as indels, build differences and multi-allelic variants has been solved by the htslib library.
@@ -11,7 +11,7 @@ Specifying a format to store GWAS summary data is necessary to aid with data sha
 - Indexing makes looking up by chromosome and position extremely fast
 - Indexing time is very fast
 - We can treat each GWAS as a distinct unit rather than storing everything in a database which is less nimble
-- We can store multiple GWAS datasets in a single file by using one sample column for each GWAS
+- We can store multiple traits from a GWAS (e.g., multi-trait GWAS or eQTL analysis) in a single file by using one sample column for each trait/gene
 - It is easy to export the data into other tabular formats
 - Initial tests indicate it could translate directly to distributed databases that sit on top of vcf e.g <https://github.com/GenomicsDB/GenomicsDB>
 
@@ -38,19 +38,19 @@ The VCF format specification is available from [hts-specs](https://samtools.gith
 
 A broad overview:
 
-- the **header** describes the harmonisation and the trait(s)/study/studies in the file.
+- the **header** describes the harmonisation, study and trait(s) in the file.
 - each row of the **body** contains information about a variant
   - variant information (e.g. chromosome, id, position, alleles, annotations) are represented in the first few columns
-  - the **sample** section (which would normally represent the genotype information of one column per individual) is used to store GWAS summary data. Each sample column represents one study/trait.
+  - the **sample** section (which would normally represent the genotype information of one column per individual) is used to store variant-trait association summary statistics data. Each sample column represents one trait.
 
 #### 1.1.1 Header
 
-The VCF header defines fields found in the body including the trait field which contain information about the GWAS study.
+The VCF header contains metadata describing the study, trait(s), genome build and other information. It also defines fields found in the body including the format for the trait field(s) which contain the variant-trait association summary statistics data.
 
 An example is given below. It has the following main meta data sections:
 
 - INFO - describes the annotations included for the variants
-- FORMAT - describes the fields available for the GWAS summary data (e.g. ES = effect size etc)
+- FORMAT - describes the fields included for the variant-trait association summary statistics (e.g. ES = effect size etc)
 - study - describes metadata about the study i.e. publication
 - trait - describes metadata about the trait i.e. phenotype that is tested for association with the variant
 - contig - descriptions of the chromosomes
