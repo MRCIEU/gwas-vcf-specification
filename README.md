@@ -1,5 +1,7 @@
 # The Variant Call Format Summary Statistics Specification v1.2
 
+NOTE v1.2 is draft and not yet implemented. Existing tools are working to [v1.0](https://github.com/MRCIEU/gwas-vcf-specification/releases/tag/1.0.0)
+
 ## Rationale
 
 Specifying a format to store GWAS summary data is necessary to aid with data sharing and tool development. Using the VCF format can fulfil the following requirements
